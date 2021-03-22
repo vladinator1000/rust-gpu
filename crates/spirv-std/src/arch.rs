@@ -8,11 +8,15 @@ use crate::{scalar::Scalar, vector::Vector};
 
 #[cfg(feature = "const-generics")]
 mod arithmetic;
+#[cfg(feature = "const-generics")]
+mod barrier;
 mod derivative;
 mod primitive;
 
 #[cfg(feature = "const-generics")]
 pub use arithmetic::*;
+#[cfg(feature = "const-generics")]
+pub use barrier::*;
 pub use derivative::*;
 pub use primitive::*;
 

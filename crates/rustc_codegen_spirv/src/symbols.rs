@@ -328,6 +328,10 @@ impl Symbols {
                 "sampled_image",
                 SpirvAttribute::IntrinsicType(IntrinsicType::SampledImage),
             ),
+            (
+                "runtime_array",
+                SpirvAttribute::IntrinsicType(IntrinsicType::RuntimeArray),
+            ),
             ("unroll_loops", SpirvAttribute::UnrollLoops),
         ]
         .iter()

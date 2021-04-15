@@ -79,12 +79,14 @@ pub mod float;
 pub mod integer;
 pub mod memory;
 pub mod ray_tracing;
+mod runtime_array;
 pub mod scalar;
 pub(crate) mod sealed;
 mod textures;
 pub mod vector;
 
 pub use num_traits;
+pub use runtime_array::*;
 pub use textures::*;
 
 /// Calls the `OpDemoteToHelperInvocationEXT` instruction, which corresponds to discard() in HLSL

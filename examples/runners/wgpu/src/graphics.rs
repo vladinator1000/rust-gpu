@@ -6,6 +6,10 @@ use winit::{
     window::Window,
 };
 
+mod shaders {
+    include!(concat!(env!("OUT_DIR"), "/entry_points.rs"));
+}
+
 unsafe fn any_as_u8_slice<T: Sized>(p: &T) -> &[u8] {
     ::std::slice::from_raw_parts((p as *const T) as *const u8, ::std::mem::size_of::<T>())
 }
@@ -81,7 +85,7 @@ async fn run(
         layout: Some(&pipeline_layout),
         vertex: wgpu::VertexState {
             module: &module,
-            entry_point: "main_vs",
+            entry_point: shaders::main_vs,
             buffers: &[],
         },
         primitive: wgpu::PrimitiveState {
@@ -99,7 +103,7 @@ async fn run(
         },
         fragment: Some(wgpu::FragmentState {
             module: &module,
-            entry_point: "main_fs",
+            entry_point: shaders::main_fs,
             targets: &[wgpu::ColorTargetState {
                 format: swapchain_format,
                 alpha_blend: wgpu::BlendState::REPLACE,
